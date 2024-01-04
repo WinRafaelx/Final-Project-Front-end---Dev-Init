@@ -4,7 +4,9 @@ export default function App() {
   return (
     <>
       <Navbar />
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <div className="container mx-auto p-4">
+        Hello
+      </div>
     </>
   );
 }
