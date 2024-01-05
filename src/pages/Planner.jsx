@@ -5,6 +5,7 @@ export default function Planner() {
   return (
     <>
     <Navbar />
-    Planner</>
+    <div className='max-w-screen-xl mx-auto p-4'>Planner</div>
+    </>
   )
 }
