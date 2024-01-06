@@ -1,0 +1,179 @@
+[
+  {
+    "month": "January",
+    "year": 2024,
+    "plan": [
+      { "day": 1, "events": ["Meeting with Client", "Lunch with Team"] },
+      { "day": 2, "events": ["Gym at 7 AM"] },
+      { "day": 5, "events": ["Doctor's Appointment"] },
+      { "day": 7, "events": ["Family Dinner"] },
+      { "day": 8, "events": ["Shopping"] },
+      { "day": 11, "events": ["Workout at 6 PM"] },
+      { "day": 14, "events": ["Coffee with Friends"] },
+      { "day": 17, "events": ["Project Deadline"] },
+      { "day": 20, "events": ["Dinner with Colleagues"] },
+      { "day": 23, "events": ["Movie Night"] },
+      { "day": 26, "events": ["Team Building Event"] },
+      { "day": 29, "events": ["Book Club Meeting"] },
+      { "day": 31, "events": ["New Year's Eve Celebration"] }
+    ]
+  },
+  {
+    "month": "February",
+    "year": 2024,
+    "plan": [
+      { "day": 1, "events": ["Team Meeting"] },
+      { "day": 2, "events": ["Dentist Appointment"] },
+      { "day": 5, "events": ["Lunch with Friends"] },
+      { "day": 7, "events": ["Movie Night"] },
+      { "day": 8, "events": ["Shopping"] },
+      { "day": 11, "events": ["Workout at 6 PM"] },
+      { "day": 14, "events": ["Coffee with Friends"] },
+      { "day": 17, "events": ["Project Deadline"] },
+      { "day": 20, "events": ["Dinner with Colleagues"] },
+      { "day": 23, "events": ["Movie Night"] },
+      { "day": 26, "events": ["Team Building Event"] }
+    ]
+  },
+
+  {
+    "month": "March",
+    "year": 2024,
+    "plan": [
+      { "day": 1, "events": ["Team Meeting"] },
+      { "day": 5, "events": ["Lunch with Friends"] },
+      { "day": 8, "events": ["Shopping"] },
+      { "day": 12, "events": ["Family Picnic"] },
+      { "day": 15, "events": ["Project Presentation"] },
+      { "day": 18, "events": ["Dinner with Colleagues"] },
+      { "day": 22, "events": ["Movie Night"] },
+      { "day": 26, "events": ["Book Club Meeting"] },
+      { "day": 29, "events": ["Game Night with Friends"] },
+      { "day": 31, "events": ["New Month Celebration"] }
+    ]
+  },
+  {
+    "month": "April",
+    "year": 2024,
+    "plan": [
+      { "day": 3, "events": ["Workshop Event"] },
+      { "day": 7, "events": ["Coffee with Friends"] },
+      { "day": 10, "events": ["Team Building Event"] },
+      { "day": 14, "events": ["Dinner with Family"] },
+      { "day": 18, "events": ["Project Deadline"] },
+      { "day": 21, "events": ["Movie Night"] },
+      { "day": 25, "events": ["Lunch with Clients"] },
+      { "day": 28, "events": ["Game Night with Friends"] }
+    ]
+  },
+  {
+    "month": "May",
+    "year": 2024,
+    "plan": [
+      { "day": 2, "events": ["Team Meeting"] },
+      { "day": 6, "events": ["Gym at 7 AM"] },
+      { "day": 10, "events": ["Shopping"] },
+      { "day": 15, "events": ["Dinner with Colleagues"] },
+      { "day": 19, "events": ["Project Presentation"] },
+      { "day": 22, "events": ["Movie Night"] },
+      { "day": 26, "events": ["Book Club Meeting"] },
+      { "day": 30, "events": ["Family Dinner"] }
+    ]
+  },
+  {
+    "month": "June",
+    "year": 2024,
+    "plan": [
+      { "day": 3, "events": ["Coffee with Friends"] },
+      { "day": 7, "events": ["Team Building Event"] },
+      { "day": 11, "events": ["Lunch with Clients"] },
+      { "day": 15, "events": ["Workshop Event"] },
+      { "day": 18, "events": ["Dinner with Family"] },
+      { "day": 21, "events": ["Project Deadline"] },
+      { "day": 25, "events": ["Movie Night"] },
+      { "day": 29, "events": ["Game Night with Friends"] }
+    ]
+  },
+  {
+    "month": "July",
+    "year": 2024,
+    "plan": [
+      { "day": 2, "events": ["Gym at 7 AM"] },
+      { "day": 6, "events": ["Team Meeting"] },
+      { "day": 10, "events": ["Shopping"] },
+      { "day": 14, "events": ["Coffee with Friends"] },
+      { "day": 18, "events": ["Project Presentation"] },
+      { "day": 22, "events": ["Dinner with Colleagues"] },
+      { "day": 26, "events": ["Book Club Meeting"] },
+      { "day": 30, "events": ["Family Dinner"] }
+    ]
+  },
+  {
+    "month": "August",
+    "year": 2024,
+    "plan": [
+      { "day": 3, "events": ["Game Night with Friends"] },
+      { "day": 7, "events": ["Team Building Event"] },
+      { "day": 11, "events": ["Lunch with Clients"] },
+      { "day": 15, "events": ["Movie Night"] },
+      { "day": 19, "events": ["Dinner with Family"] },
+      { "day": 23, "events": ["Project Deadline"] },
+      { "day": 27, "events": ["Coffee with Friends"] },
+      { "day": 31, "events": ["New Month Celebration"] }
+    ]
+  },
+  {
+    "month": "September",
+    "year": 2024,
+    "plan": [
+      { "day": 4, "events": ["Book Club Meeting"] },
+      { "day": 8, "events": ["Team Meeting"] },
+      { "day": 12, "events": ["Gym at 7 AM"] },
+      { "day": 16, "events": ["Workshop Event"] },
+      { "day": 20, "events": ["Dinner with Colleagues"] },
+      { "day": 24, "events": ["Project Presentation"] },
+      { "day": 28, "events": ["Game Night with Friends"] }
+    ]
+  },
+  {
+    "month": "October",
+    "year": 2024,
+    "plan": [
+      { "day": 2, "events": ["Coffee with Friends"] },
+      { "day": 6, "events": ["Team Building Event"] },
+      { "day": 10, "events": ["Lunch with Clients"] },
+      { "day": 14, "events": ["Shopping"] },
+      { "day": 18, "events": ["Movie Night"] },
+      { "day": 22, "events": ["Dinner with Family"] },
+      { "day": 26, "events": ["Project Deadline"] },
+      { "day": 30, "events": ["Family Dinner"] }
+    ]
+  },
+  {
+    "month": "November",
+    "year": 2024,
+    "plan": [
+      { "day": 3, "events": ["Book Club Meeting"] },
+      { "day": 7, "events": ["Team Meeting"] },
+      { "day": 11, "events": ["Gym at 7 AM"] },
+      { "day": 15, "events": ["Coffee with Friends"] },
+      { "day": 19, "events": ["Project Presentation"] },
+      { "day": 23, "events": ["Game Night with Friends"] },
+      { "day": 27, "events": ["Workshop Event"] }
+    ]
+  },
+  {
+    "month": "December",
+    "year": 2024,
+    "plan": [
+      { "day": 2, "events": ["Dinner with Colleagues"] },
+      { "day": 6, "events": ["Movie Night"] },
+      { "day": 10, "events": ["Book Club Meeting"] },
+      { "day": 14, "events": ["Project Deadline"] },
+      { "day": 18, "events": ["Family Dinner"] },
+      { "day": 22, "events": ["Shopping"] },
+      { "day": 26, "events": ["Coffee with Friends"] },
+      { "day": 30, "events": ["New Year's Eve Celebration"] }
+    ]
+  }
+]
