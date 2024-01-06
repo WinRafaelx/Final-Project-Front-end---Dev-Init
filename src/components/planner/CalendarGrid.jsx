@@ -1,35 +1,23 @@
 import React, { useEffect, useState } from "react";
 import DayCell from "./DayCell";
 
-const CalendarGrid = () => {
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-  ];
+const CalendarGrid = ({year, month}) => {
 
   const [calendarData, setCalendarData] = useState([]);
 
   useEffect(() => {
-    const nowMonth = new Date().getMonth() + 1;
-    const firstDay = new Date(new Date().getFullYear(), nowMonth, 1).getDay();
+    const firstDay = new Date(year, month, 1).getDay();
     const daysLastMonth = new Date(
-      new Date().getFullYear(),
-      nowMonth,
+      year,
+      month,
       0
     ).getDate();
     const daysInMonth = new Date(
-      new Date().getFullYear(),
-      nowMonth + 1,
+      year,
+      month + 1,
       0
     ).getDate();
+    console.log(year, month, daysInMonth, daysLastMonth, firstDay)
 
     const generateCalendarData = () => {
       let keepWeek = [];
@@ -76,7 +64,7 @@ const CalendarGrid = () => {
     if (calendarData.length === 0) {
       generateCalendarData();
     }
-  }, [calendarData]);
+  }, [calendarData, year, month]);
 
   return (
     <tbody>
