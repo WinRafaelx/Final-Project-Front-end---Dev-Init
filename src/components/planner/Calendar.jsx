@@ -23,7 +23,6 @@ const Calendar = () => {
       setNowMonth(nowMonth - 1);
     }
   };
-  console.log(nowMonth);
 
   return (
     <div className="container mx-auto mt-10">

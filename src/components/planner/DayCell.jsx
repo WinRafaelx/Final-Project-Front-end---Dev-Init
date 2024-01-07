@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DayCell = ({ day, thismonth }) => {
+const DayCell = ({ day, thismonth, events }) => {
   return (
     <td className={
         `border p-1 h-40 xl:w-40 lg:w-30 md:w-30 sm:w-20 w-10 overflow-auto transition cursor-pointer duration-500 ease hover:bg-gray-400
@@ -12,7 +12,11 @@ const DayCell = ({ day, thismonth }) => {
         </div>
         <div className="bottom flex-grow h-30 py-1 w-full cursor-pointer">
           {/* Render events or other content for the day */}
-          
+          {events.map((event, index) => (
+            <div key={index} className="text-white bg-orange-400 rounded p-1 m-1">
+              {event}
+            </div>
+          ))}
         </div>
       </div>
     </td>
