@@ -1,34 +1,45 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+// Import necessary dependencies
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import {
   createBrowserRouter,
   RouterProvider,
-} from "react-router-dom";
-import './index.css'
+} from 'react-router-dom';
+import './index.css';
+import App from './App.jsx';
 import Planner from './pages/Planner.jsx';
 import Todolist from './pages/Todolist.jsx';
 import Diary from './pages/Diary.jsx';
+import AddPlanner from './pages/Addplanner.jsx';
 
-const router = createBrowserRouter([
+// Define your routes
+const routes = [
   {
-    path: "/",
+    path: '/',
     element: <App />,
   },
   {
-    path: "/planner",
+    path: '/planner',
     element: <Planner />,
   },
   {
-    path: "/todolist",
+    path: '/todolist',
     element: <Todolist />,
   },
   {
-    path: "/diary",
+    path: '/diary',
     element: <Diary />,
-  }
-]);
+  },
+  {
+    path: '/planner/addplanner',
+    element: <AddPlanner />,
+  },
+];
 
+// Create a router with the defined routes
+const router = createBrowserRouter(routes);
+
+// Render the application with the router
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
-)
+);
