@@ -1,33 +1,30 @@
 import React, { useEffect, useState } from "react";
 import DayCell from "./DayCell";
-import data from "../../data/planner.json";
-import { months } from "./utils";
+import { useSelector } from "react-redux";
+import { getPlanner } from "../../libs/PlannerSlice";
+import { months } from "../../models/model";
 
 const CalendarGrid = ({ year, month }) => {
   const [calendarData, setCalendarData] = useState([]);
+  const data = useSelector(getPlanner);
 
   useEffect(() => {
-    const firstDay = new Date(year, month - 1, 1).getDay();
-    const daysLastMonth = new Date(year, month - 1, 0).getDate();
-    const daysInMonth = new Date(year, month, 0).getDate();
-
-    let events = [{ day: 1, events: []}, { day: 2, events: []}];
-
-    // Ensure the selected month has data
-    const monthData = data.find(
-      (item) => item.month === months[month - 1] && item.year === year
-    );
-    if (!monthData) {
-      // If no data is available for the month, set an empty array
-      setCalendarData([]);
-    } else {
-      events = monthData.plan;
-    }
-
-    let countDate = 0;
-    console.log(events);
-
     const generateCalendarData = () => {
+      const firstDay = new Date(year, month - 1, 1).getDay();
+      const daysLastMonth = new Date(year, month - 1, 0).getDate();
+      const daysInMonth = new Date(year, month, 0).getDate();
+
+      let events = [{ date: 1, events: []}, { date: 2, events: []}];
+
+      // Ensure the selected month has data
+      const monthData = data.find(
+        (item) => item.month === months[month - 1] && item.year === year
+      );
+      if (monthData) {
+        events = monthData.plan;
+      }
+
+      let countDate = 0;
       let newCalendarData = [];
       let keepWeek = [];
       let countWeek = 0;
@@ -35,7 +32,7 @@ const CalendarGrid = ({ year, month }) => {
       // Days from the previous month
       for (let i = 0; i < firstDay; i++) {
         keepWeek.push({
-          day: daysLastMonth - firstDay + i + 1,
+          date: daysLastMonth - firstDay + i + 1,
           events: [], // You can add events here if needed
           thismonth: false,
         });
@@ -45,13 +42,13 @@ const CalendarGrid = ({ year, month }) => {
       // Days from the current month
       for (let i = 0; i < daysInMonth; i++) {
         let eventsInDay = [];
-        if (countDate < events.length && i + 1 === events[countDate].day) {
+        if (countDate < events.length && i + 1 === events[countDate].date) {
           eventsInDay = events[countDate].events;
           countDate += 1;
         }
         keepWeek.push({
-          day: i + 1,
-          events: eventsInDay, 
+          date: i + 1,
+          events: eventsInDay,
           thismonth: true,
         });
         countWeek += 1;
@@ -65,8 +62,8 @@ const CalendarGrid = ({ year, month }) => {
       // Days from the next month to fill the last row
       for (let i = 0; i < 7 - ((daysInMonth + firstDay) % 7); i++) {
         keepWeek.push({
-          day: i + 1,
-          events: [], 
+          date: i + 1,
+          events: [],
           thismonth: false,
         });
         countWeek += 1;
@@ -86,7 +83,7 @@ const CalendarGrid = ({ year, month }) => {
           {week.map((day, dayIndex) => (
             <DayCell
               key={dayIndex}
-              day={day.day}
+              day={day.date}
               thismonth={day.thismonth}
               events={day.events}
             />

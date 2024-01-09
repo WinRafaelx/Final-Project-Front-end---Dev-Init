@@ -1,16 +1,15 @@
 // Import necessary dependencies
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'; // Updated imports
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App.jsx';
 import Planner from './pages/Planner.jsx';
 import Todolist from './pages/Todolist.jsx';
 import Diary from './pages/Diary.jsx';
-import AddPlanner from './pages/Addplanner.jsx';
+import store from './store.js';
+import { Provider } from 'react-redux'; // Updated import
+import Addplanner from './pages/Addplanner.jsx';
 
 // Define your routes
 const routes = [
@@ -20,7 +19,11 @@ const routes = [
   },
   {
     path: '/planner',
-    element: <Planner />,
+    element: (
+      <Provider store={store}>
+        <Planner />
+      </Provider>
+    ),
   },
   {
     path: '/todolist',
@@ -32,7 +35,11 @@ const routes = [
   },
   {
     path: '/planner/addplanner',
-    element: <AddPlanner />,
+    element:(
+      <Provider store={store}>
+        <Addplanner />
+      </Provider>
+    ),
   },
 ];
 
@@ -40,6 +47,6 @@ const routes = [
 const router = createBrowserRouter(routes);
 
 // Render the application with the router
-ReactDOM.createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
 );

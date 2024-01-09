@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from "react";
 import MonthView from "./MonthView";
-import { months } from "./utils";
+import { months } from "../../models/model";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addEvent, getPlanner } from "../../libs/PlannerSlice";
 
 const Calendar = () => {
   const [nowMonth, setNowMonth] = useState(new Date().getMonth() + 1);
   const [thisYear, setThisYear] = useState(new Date().getFullYear());
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const planner = useSelector(getPlanner);
 
   const nextMonth = () => {
     if (nowMonth === 12) {
@@ -26,9 +30,17 @@ const Calendar = () => {
     }
   };
 
-  const addEvent = () => { 
+  const gotoAddEvent = () => { 
+    // dispatch(addEvent({
+    //   "year": thisYear,
+    //   "month": months[nowMonth - 1],
+    //   "date": 3,
+    //   "task": "test"
+    // }))
     navigate("/planner/addplanner");
   }
+  console.log(planner)
+
 
   return (
     <div className="container mx-auto mt-10">
@@ -46,7 +58,7 @@ const Calendar = () => {
             </h2>
             <button
               className="ms-2 px-2 py-1 font-normal border-2 border-green-600 text-green-600 rounded hover:bg-gray-200"
-              onClick={addEvent}
+              onClick={gotoAddEvent}
             >
               Add
             </button>
