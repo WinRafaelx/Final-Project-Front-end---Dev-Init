@@ -10,6 +10,9 @@ import Diary from './pages/Diary.jsx';
 import store from './store.js';
 import { Provider } from 'react-redux'; // Updated import
 import Addplanner from './pages/Addplanner.jsx';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 // Define your routes
 const routes = [

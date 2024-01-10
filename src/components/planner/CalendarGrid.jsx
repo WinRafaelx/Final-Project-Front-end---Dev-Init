@@ -7,6 +7,7 @@ import { months } from "../../models/model";
 const CalendarGrid = ({ year, month }) => {
   const [calendarData, setCalendarData] = useState([]);
   const data = useSelector(getPlanner);
+  console.log(new Date(year, month - 1, 12))
 
   useEffect(() => {
     const generateCalendarData = () => {
