@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import data from "../data/planner.json";
+import { months } from "../models/model";
 
 const calendarSlice = createSlice({
   name: "calendar",
@@ -9,56 +10,69 @@ const calendarSlice = createSlice({
   reducers: {
     addEvent: (state, action) => {
       const { year, month, date, task } = action.payload;
-      console.log(year, month, date, task);
 
       // Find the target month
       const targetMonth = state.data.find(
         (item) => item.year === year && item.month === month
       );
 
-      console.log(targetMonth);
-
       // Check if the target month exists
       if (targetMonth) {
         // Find the target date within the month
-        const targetDate = targetMonth['plan'].find(
+        const targetDate = targetMonth.plan.find(
           (item) => item.date === date
         );
 
         // Check if the target date exists
         if (targetDate) {
-          // Update tasks for the target date
-          targetDate['events'].push(task);
+          // Update events for the target date
+          targetDate.events.push(task);
         } else {
           // If the target date doesn't exist, create a new entry
-          const indexDate = targetMonth['plan'].findIndex(
-            (item) => item.date > date
-          );
           const newEvent = {
             date: date,
             events: [task],
           };
-          targetMonth['plan'].splice(indexDate, 0, newEvent);
-          // targetDate.splice(indexDate, 0, newEvent);
+          const targetIndex = targetMonth.plan.findIndex(
+            (item) => item.date > date
+          );
+          targetMonth.plan.splice(targetIndex, 0, newEvent);
         }
       } else {
         // If the target month doesn't exist, create a new entry for the month
         state.data.push({
           year: year,
           month: month,
-          dates: [
+          plan: [
             {
               date: date,
-              tasks: [task],
+              events: [task],
             },
           ],
         });
       }
     },
+    removeEvent: (state, action) => {
+      const { date, index } = action.payload;
+      console.log(months[date.getMonth()], index);
+      try {
+        const targetMonth = state.data.find(
+          (item) =>
+            item.year === date.getFullYear() &&
+            item.month === months[date.getMonth()]
+        );
+        const targetDate = targetMonth.plan.find(
+          (item) => item.date === date.getDate()
+        );
+        targetDate.events.splice(index, 1);
+      } catch (error) {
+        console.log(error);
+      }
+    },
   },
 });
 
-export const { addEvent } = calendarSlice.actions;
+export const { addEvent, removeEvent } = calendarSlice.actions;
 
 export default calendarSlice.reducer;
 

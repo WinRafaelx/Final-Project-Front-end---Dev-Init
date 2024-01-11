@@ -1,17 +1,39 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPlanner, addEvent } from "../../libs/PlannerSlice";
 import { months } from "../../models/model";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 const Form = () => {
-  const planner = useSelector(getPlanner);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { dateVal } = useParams();
+  const { search } = useLocation();
+  const queryParams = new URLSearchParams(search);
+  const queryDate = queryParams.get("dateVal");
 
   // Create refs for date and task inputs
   const dateRef = useRef(null);
   const taskRef = useRef(null);
+
+  useEffect(() => {
+    if (queryDate != null) {
+      const formattedDate = handleDateFormat(queryDate);
+      dateRef.current.value = formattedDate;
+    }
+  }, [queryDate]);
+
+  const handleDateFormat = (date) => {
+    let [day, month, year] = date.split("-")
+    if (day.length === 1) {
+      day = "0" + day
+    }
+    if (month.length === 1) {
+      month = "0" + month
+    }
+
+    return `${year}-${month}-${day}`
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -20,7 +42,7 @@ const Form = () => {
     const dateValue = dateRef.current.value;
     const taskValue = taskRef.current.value;
 
-    const [year, month, date] = dateValue.split("-").map(Number);
+    const [year, month, date] = dateValue.split("-").map(part => parseInt(part, 10));
 
     dateRef.current.value = "";
     taskRef.current.value = "";
@@ -33,12 +55,12 @@ const Form = () => {
         task: taskValue,
       })
     );
-      navigate("/planner");
+    navigate("/planner");
   };
-  console.log(planner);
+
 
   return (
-    <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
+    <form className="max-w-sm mx-auto mt-10" onSubmit={handleSubmit}>
       <div className="mb-5">
         <label htmlFor="date" className="block mb-2 text-sm font-medium">
           Date:

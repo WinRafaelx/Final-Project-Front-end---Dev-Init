@@ -21,7 +21,7 @@ const DayCell = ({ day, thismonth, events }) => {
       >
         <div className="flex flex-col h-40 mx-auto xl:w-40 lg:w-30 md:w-30 sm:w-full w-10 mx-auto overflow-hidden relative">
           <div className="top h-5 w-full">
-            <span className="text-gray-500">{day}</span>
+            <span className="text-gray-500">{day.getDate()}</span>
           </div>
           <div className="bottom flex-grow h-30 py-1 w-full cursor-pointer hidden sm:block">
             {/* Render events or other content for the day */}
@@ -44,7 +44,7 @@ const DayCell = ({ day, thismonth, events }) => {
         </div>
       </td>
       {showModal && (
-        <ModalComponent closeModal={closeModal} />
+        <ModalComponent closeModal={closeModal} date={day} events={events} />
       )}
     </>
   );

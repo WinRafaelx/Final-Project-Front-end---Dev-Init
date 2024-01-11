@@ -7,7 +7,6 @@ import { months } from "../../models/model";
 const CalendarGrid = ({ year, month }) => {
   const [calendarData, setCalendarData] = useState([]);
   const data = useSelector(getPlanner);
-  console.log(new Date(year, month - 1, 12))
 
   useEffect(() => {
     const generateCalendarData = () => {
@@ -33,7 +32,7 @@ const CalendarGrid = ({ year, month }) => {
       // Days from the previous month
       for (let i = 0; i < firstDay; i++) {
         keepWeek.push({
-          date: daysLastMonth - firstDay + i + 1,
+          date: new Date(year, month-2, daysLastMonth - firstDay + i + 1),
           events: [], // You can add events here if needed
           thismonth: false,
         });
@@ -48,7 +47,7 @@ const CalendarGrid = ({ year, month }) => {
           countDate += 1;
         }
         keepWeek.push({
-          date: i + 1,
+          date: new Date(year, month - 1, i + 1),
           events: eventsInDay,
           thismonth: true,
         });
@@ -63,7 +62,7 @@ const CalendarGrid = ({ year, month }) => {
       // Days from the next month to fill the last row
       for (let i = 0; i < 7 - ((daysInMonth + firstDay) % 7); i++) {
         keepWeek.push({
-          date: i + 1,
+          date: new Date(year, month, i + 1),
           events: [],
           thismonth: false,
         });

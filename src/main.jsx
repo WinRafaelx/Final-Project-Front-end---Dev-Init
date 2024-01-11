@@ -1,48 +1,40 @@
 // Import necessary dependencies
-import React from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'; // Updated imports
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import App from './App.jsx';
-import Planner from './pages/Planner.jsx';
-import Todolist from './pages/Todolist.jsx';
-import Diary from './pages/Diary.jsx';
-import store from './store.js';
-import { Provider } from 'react-redux'; // Updated import
-import Addplanner from './pages/Addplanner.jsx';
-import Modal from 'react-modal';
+import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom"; // Updated imports
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
+import Planner from "./pages/Planner.jsx";
+import Todolist from "./pages/Todolist.jsx";
+import Diary from "./pages/Diary.jsx";
+import store from "./store.js";
+import { Provider } from "react-redux"; // Updated import
+import Addplanner from "./pages/Addplanner.jsx";
+import Modal from "react-modal";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 // Define your routes
 const routes = [
   {
-    path: '/',
+    path: "/",
     element: <App />,
   },
   {
-    path: '/planner',
-    element: (
-      <Provider store={store}>
-        <Planner />
-      </Provider>
-    ),
+    path: "/planner",
+    element: <Planner />,
   },
   {
-    path: '/todolist',
+    path: "/todolist",
     element: <Todolist />,
   },
   {
-    path: '/diary',
+    path: "/diary",
     element: <Diary />,
   },
   {
-    path: '/planner/addplanner',
-    element:(
-      <Provider store={store}>
-        <Addplanner />
-      </Provider>
-    ),
+    path: "/planner/addplanner",
+    element: <Addplanner />,
   },
 ];
 
@@ -50,6 +42,8 @@ const routes = [
 const router = createBrowserRouter(routes);
 
 // Render the application with the router
-createRoot(document.getElementById('root')).render(
-  <RouterProvider router={router} />
+createRoot(document.getElementById("root")).render(
+  <Provider store={store}>
+    <RouterProvider router={router} />
+  </Provider>
 );

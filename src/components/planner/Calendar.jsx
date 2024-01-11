@@ -39,8 +39,6 @@ const Calendar = () => {
     // }))
     navigate("/planner/addplanner");
   }
-  console.log(planner)
-
 
   return (
     <div className="container mx-auto mt-10">
