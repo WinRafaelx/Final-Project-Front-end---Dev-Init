@@ -54,7 +54,6 @@ const calendarSlice = createSlice({
     },
     removeEvent: (state, action) => {
       const { date, index } = action.payload;
-      console.log(months[date.getMonth()], index);
       try {
         const targetMonth = state.data.find(
           (item) =>

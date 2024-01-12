@@ -28,7 +28,6 @@ const ModalComponent = ({ closeModal, date, events }) => {
 
   const handleRemove = (index) => {
     dispatch(removeEvent({date, index: index}))
-    closeModal()
   }
 
   const handleAdd = (date) => {

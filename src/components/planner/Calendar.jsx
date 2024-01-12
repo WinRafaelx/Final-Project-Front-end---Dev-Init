@@ -41,7 +41,7 @@ const Calendar = () => {
   }
 
   return (
-    <div className="container mx-auto mt-10">
+    <div className="container mx-auto">
       <div className="wrapper bg-white rounded shadow w-full">
         <div className="flex items-center justify-between p-4 border-b">
           <button
