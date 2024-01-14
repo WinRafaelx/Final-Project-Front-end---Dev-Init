@@ -4,11 +4,13 @@ import { todayFormatted } from "../../models/model";
 import Textarea from "./TextArea";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { addDiary } from "../../libs/DiarySlice";
+import ViewDiary from "./ModalDiary/ViewDiary";
 import { todayDiaryFormatted } from "../../models/model";
 
 export default function FormDiary() {
   const [selectedEmotion, setSelectedEmotion] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const title = useRef('');
   const diaryMessage = useRef('');
   const dispatch = useDispatch();
@@ -26,6 +28,14 @@ export default function FormDiary() {
 
   const handleCountryChange = (selectedOption) => {
     setSelectedEmotion(selectedOption.value);
+  };
+
+  const openModal = () => {
+    setShowModal(true);
+  }
+
+const closeModal = () => {
+    setShowModal(false);
   };
 
   const handleSubmit = (event) => {
@@ -59,6 +69,13 @@ export default function FormDiary() {
   
   return (
     <>
+    <div className="text-center">
+    <button
+    className="mb-3 mt-5 text-white bg-red-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 hover:bg-slate-500 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+    onClick={openModal}
+    >Read your Old Diary</button>
+    </div>
+    <ViewDiary isOpen={showModal} onRequestClose={closeModal} />
     {alreadyDiary ? (
       <div
       className="text-2xl mt-3">🥰 You have alreay write today diary 😄</div>
