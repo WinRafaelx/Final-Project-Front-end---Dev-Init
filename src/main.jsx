@@ -7,6 +7,7 @@ import App from "./App.jsx";
 import Planner from "./pages/Planner.jsx";
 import Todolist from "./pages/Todolist.jsx";
 import AddDiary from "./pages/AddDiary.jsx";
+import ReadDiary from "./pages/ReadDiary.jsx";
 import store from "./store.js";
 import { Provider } from "react-redux"; // Updated import
 import Addplanner from "./pages/Addplanner.jsx";
@@ -29,8 +30,12 @@ const routes = [
     element: <Todolist />,
   },
   {
-    path: "/addDiary",
+    path: "/diary",
     element: <AddDiary />,
+  },
+  {
+    path: "/readDiary",
+    element: <ReadDiary />,
   },
   {
     path: "/planner/addplanner",
