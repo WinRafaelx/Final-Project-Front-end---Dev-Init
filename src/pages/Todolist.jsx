@@ -36,7 +36,7 @@ export default function Todolist() {
     const newTask = inputRef.current.value;
     if (newTask.trim() !== "") {
       // Add new task to the notDone array
-      setNotDone([...notDone, { task: newTask, done: false }]);
+      setNotDone([{ task: newTask, done: false }, ...notDone]);
       // Clear the input field
       inputRef.current.value = "";
     }
@@ -49,7 +49,7 @@ export default function Todolist() {
     setNotDone(newNotDone);
 
     const newDone = [...done];
-    newDone.push({ task, done: true });
+    newDone.unshift({ task, done: true });
     setDone(newDone);
   };
 
@@ -60,7 +60,7 @@ export default function Todolist() {
     setDone(newDone);
 
     const newNotDone = [...notDone];
-    newNotDone.push({ task, done: false });
+    newNotDone.unshift({ task, done: false });
     setNotDone(newNotDone);
   };
 

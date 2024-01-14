@@ -21,43 +21,43 @@ const UserDropdown = ({ onClose }) => {
     >
       <div className="px-4 py-3">
         <span className="block text-sm text-gray-900 dark:text-white">
-          Bonnie Green
+          Akuma Raiju
         </span>
         <span className="block text-sm text-gray-500 truncate dark:text-gray-400">
-          name@flowbite.com
+          AkumaRaiju@gmail.com
         </span>
       </div>
       <ul className="py-2" aria-labelledby="user-menu-button">
         <li>
           <Link
-            to="#"
+            to="/"
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
           >
-            Dashboard
+            Home
           </Link>
         </li>
         <li>
           <Link
-            to="#"
+            to="/planner"
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
           >
-            Settings
+            planner
           </Link>
         </li>
         <li>
           <Link
-            to="#"
+            to="/todolist"
             className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
           >
-            Earnings
+            Todolist
           </Link>
         </li>
         <li>
           <Link
-            to="#"
+            to="/diary"
             className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover.bg-gray-600 dark:text-gray-200 dark:hover:text-white"
           >
-            Sign out
+            Diary
           </Link>
         </li>
       </ul>

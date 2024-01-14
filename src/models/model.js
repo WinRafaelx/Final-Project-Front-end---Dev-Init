@@ -33,4 +33,4 @@ const todayDiaryFormatted = `${today.getFullYear()}-${formatWithLeadingZero(toda
 
 const todayFormatted = `${days[today.getDay()]} ${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`;
 
-export { nowMonth, firstDay, daysLastMonth, daysInMonth, thisYear, months, todayFormatted, todayDiaryFormatted };
+export { nowMonth, firstDay, daysLastMonth, daysInMonth, thisYear, months, todayFormatted, todayDiaryFormatted, today };
