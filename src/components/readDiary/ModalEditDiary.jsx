@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
 import Select from "react-select";
-import TextArea from "../diary/TextArea";
+import TextAreaAutoSize from "../diary/TextAreaAutoSize";
 import { editDiary } from "../../libs/DiarySlice";
 
 const customStyles = {
@@ -116,7 +116,7 @@ export default function ModalEditDiary({
               placeholder="Title: Ex. The brave of hero"
               className="block p-2.5 mb-4 w-full text-xl text-black bg-slate-100 rounded-lg border border-gray-300"
             />
-            <TextArea diaryMessage={editedDiary} />
+            <TextAreaAutoSize diaryMessage={editedDiary} />
           </div>
         </form>
       </Modal>

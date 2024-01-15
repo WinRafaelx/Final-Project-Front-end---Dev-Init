@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
 
-const Textarea = ({diaryMessage}) => {
+const TextAreaAutoSize = ({diaryMessage}) => {
 
   return (
     <>
@@ -18,4 +18,4 @@ const Textarea = ({diaryMessage}) => {
   );
 };
 
-export default Textarea;
+export default TextAreaAutoSize;

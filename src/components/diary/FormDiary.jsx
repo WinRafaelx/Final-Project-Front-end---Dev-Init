@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import Select from "react-select";
 import { todayFormatted } from "../../models/model";
-import TextArea from "./TextArea";
+import TextAreaAutoSize from "./TextAreaAutoSize";
 import { useSelector, useDispatch, connect } from "react-redux";
 import { addDiary } from "../../libs/DiarySlice";
 import ViewDiary from "./ModalDiary/ViewDiary";
@@ -116,7 +116,7 @@ export default function FormDiary() {
             placeholder="Title: Ex. The brave of hero"
             className="block p-2.5 mb-4 w-full text-xl text-black bg-slate-100 rounded-lg border border-gray-300"
           />
-          <TextArea diaryMessage={diaryMessage} />
+          <TextAreaAutoSize diaryMessage={diaryMessage} />
         </form>
       )}
     </>
