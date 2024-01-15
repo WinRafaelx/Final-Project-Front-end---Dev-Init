@@ -21,13 +21,21 @@ const customStyles = {
 };
 
 const options = [
+  { value: "", label: "🧐 Today feeling", isDisabled: true },
   { value: "😇 So cool", label: "😇 So cool" },
   { value: "🤣 It's OK", label: "🤣 It's OK" },
   { value: "🥲 I wanna Cry", label: "🥲 I wanna Cry" },
   { value: "😤 So angry", label: "😤 So angry" },
 ];
 
-export default function ModalEditDiary({ isOpen, onRequestClose, date, title, emotion, content }) {
+export default function ModalEditDiary({
+  isOpen,
+  onRequestClose,
+  date,
+  title,
+  emotion,
+  content,
+}) {
   const [selectedEmotion, setSelectedEmotion] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const dispatch = useDispatch();
@@ -40,7 +48,7 @@ export default function ModalEditDiary({ isOpen, onRequestClose, date, title, em
 
   const handleEdit = (event) => {
     event.preventDefault();
-    if(!selectedEmotion) {
+    if (!selectedEmotion) {
       setErrorMessage(
         <p className="text-red-500 text-sm mb-4">Please select your emotion</p>
       );
@@ -51,13 +59,20 @@ export default function ModalEditDiary({ isOpen, onRequestClose, date, title, em
     const diaryMessageValue = editedDiary.current.value;
     const emotion = selectedEmotion;
 
-    dispatch(editDiary({ date, title: titleValue, content: diaryMessageValue, emotion: emotion }))
+    dispatch(
+      editDiary({
+        date,
+        title: titleValue,
+        content: diaryMessageValue,
+        emotion: emotion,
+      })
+    );
 
     editedTitle.current.value = "";
     editedDiary.current.value = "";
     setSelectedEmotion("");
     onRequestClose();
-  }
+  };
 
   return (
     <>
@@ -73,7 +88,9 @@ export default function ModalEditDiary({ isOpen, onRequestClose, date, title, em
             <div className="flex mb-5 justify-between">
               <div className="sm:mr-2">
                 <Select
-                  value={options.find((option) => option.value === selectedEmotion)}
+                  value={options.find(
+                    (option) => option.value === selectedEmotion
+                  )}
                   onChange={handleCountryChange}
                   options={options}
                   className="w-full"
