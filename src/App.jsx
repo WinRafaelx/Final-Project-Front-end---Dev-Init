@@ -2,12 +2,12 @@ import Navbar from "./components/navbar/Navbar";
 import { todayDiaryFormatted, months } from "./models/model";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import todoData from "./data/todolist.json";
 
 export default function App() {
   const [year, month, date] = todayDiaryFormatted.split("-");
   const allPlan = useSelector((state) => state.calendar.data);
   const allDiary = useSelector((state) => state.diary.data);
+  const allTodo = useSelector((state) => state.todo.data);
   const navigate = useNavigate();
 
   const alreadyDiary = allDiary.find(
@@ -22,7 +22,6 @@ export default function App() {
     ? thisMonthPlan.plan.find((p) => p.date == date)
     : null;
 
-  console.log(todayPlan);
 
   return (
     <div className="h-screen">
@@ -60,7 +59,7 @@ export default function App() {
             >
               <div className="text-xl font-semibold mb-3">Todo-List 🎼</div>
               <div>
-                {todoData.map((todo, index) =>
+                {allTodo.map((todo, index) =>
                   !todo.done ? ( // Use ternary operator to conditionally render
                     <div className="text-xl" key={index}>
                       ‣ {todo.task}

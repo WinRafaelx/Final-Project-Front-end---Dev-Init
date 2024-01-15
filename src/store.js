@@ -4,11 +4,13 @@ import { combineReducers } from "redux";
 import { logger } from "redux-logger";
 import calendarReducer from "./libs/PlannerSlice";
 import diaryReducer from "./libs/DiarySlice";
+import todoReducer from "./libs/TodoSlice";
 
 const rootReducer = combineReducers({
   // Add your reducers here
   calendar: calendarReducer,
   diary: diaryReducer,
+  todo: todoReducer,
 });
 
 const middleware = (getDefaultMiddleware) => {
