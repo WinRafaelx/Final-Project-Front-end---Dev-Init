@@ -33,7 +33,10 @@ const calendarSlice = createSlice({
             date: date,
             events: [task],
           };
-          targetMonth.plan.push(newEvent); // Use push instead of splice
+          const targetIndex = targetMonth.plan.findIndex(
+            (item) => item.date > date
+          );
+          targetMonth.plan.splice(targetIndex, 0, newEvent);
         }
       } else {
         // If the target month doesn't exist, create a new entry for the month
@@ -57,22 +60,12 @@ const calendarSlice = createSlice({
             item.year === date.getFullYear() &&
             item.month === months[date.getMonth()]
         );
-
-        if (targetMonth) {
-          const targetDate = targetMonth.plan.find(
-            (item) => item.date === date.getDate()
-          );
-
-          if (targetDate) {
-            targetDate.events.splice(index, 1);
-          } else {
-            console.error("Target date not found");
-          }
-        } else {
-          console.error("Target month not found");
-        }
+        const targetDate = targetMonth.plan.find(
+          (item) => item.date === date.getDate()
+        );
+        targetDate.events.splice(index, 1);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     },
   },
