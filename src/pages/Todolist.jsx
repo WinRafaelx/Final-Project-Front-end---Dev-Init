@@ -24,10 +24,10 @@ export default function Todolist() {
       <Navbar />
       <div className="max-w-screen-xl mx-auto p-4">
         <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
-          <div className="bg-white border-t-2 rounded shadow-md p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+          <div className="bg-white border-t-2 rounded shadow-md p-10 m-4 w-full md:w-3/4">
             <div className="mb-4">
-              <h1 className="text-grey-darkest text-xl font-semibold">Todo List</h1>
-              <form onSubmit={handleAddTodo} className="flex mt-4 mb-10">
+              <h1 className="text-grey-darkest text-2xl font-semibold">🔥 Todo List 🌟</h1>
+              <form onSubmit={handleAddTodo} className="flex mt-7 mb-10">
                 <input
                   ref={inputRef}
                   type="text"
@@ -56,9 +56,9 @@ export default function Todolist() {
         </div>
 
         <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
-          <div className="bg-white border-t-2 rounded shadow-md p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+          <div className="bg-white border-t-2 rounded shadow-md p-10 m-4 w-full md:w-3/4">
             <div className="mb-4">
-              <h1 className="text-grey-darkest text-xl font-semibold">Done</h1>
+              <h1 className="text-grey-darkest text-2xl font-semibold">✅ Done</h1>
             </div>
             {data.map((task, index) => (
               task.done && (
