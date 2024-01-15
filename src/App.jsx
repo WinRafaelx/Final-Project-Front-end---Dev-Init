@@ -26,9 +26,9 @@ export default function App() {
   return (
     <div className="h-screen">
       <Navbar />
-      <div className="flex justify-center items-center h-5/6 max-sm:mt-40">
+      <div className="flex justify-center items-center h-5/6 max-sm:mt-20">
         <div className="max-w-screen-xl md:flex items-center">
-          <div className="grid justify-items-center md:mr-20">
+          <div className="grid justify-items-center md:mr-20 max-sm:mb-20">
             <div className="text-9xl">{date}</div>
             <div className="flex">
               <div className="text-3xl">{month}/</div>
