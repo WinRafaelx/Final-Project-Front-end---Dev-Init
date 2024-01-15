@@ -15,10 +15,17 @@ const diarySlice = createSlice({
                 emotion: emotion,
                 content: content,
             });
+        },
+        editDiary: (state, action) => {
+            const { date, title, emotion, content } = action.payload;
+            const index = state.data.findIndex((item) => item.date === date);
+            state.data[index].title = title;
+            state.data[index].emotion = emotion;
+            state.data[index].content = content;
         }
     }
 })
 
-export const { addDiary } = diarySlice.actions
+export const { addDiary, editDiary } = diarySlice.actions
 
 export default diarySlice.reducer

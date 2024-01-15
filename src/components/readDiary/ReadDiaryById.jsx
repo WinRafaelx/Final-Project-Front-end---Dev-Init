@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate, useLocation, useParams } from "react-router-dom";
 import ViewDiary from "../diary/ModalDiary/ViewDiary";
+import ModalEditDiary from "./ModalEditDiary";
 
 export default function ReadDiaryById() {
   const data = useSelector((state) => state.diary.data);
@@ -10,6 +11,7 @@ export default function ReadDiaryById() {
   const [checkAbleBack, setCheckAbleBack] = useState(true);
   const [checkAbleNext, setCheckAbleNext] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [editModal, setEditModal] = useState(false);
   const navigate = useNavigate();
   const { id } = useParams();
   const { search } = useLocation();
@@ -53,19 +55,27 @@ export default function ReadDiaryById() {
     setShowModal(false);
   };
 
+  const openEditModal = () => {
+    setEditModal(true);
+  }
+
+  const closeEditModal = () => {
+    setEditModal(false);
+  }
+
   return (
     <div>
       {useDiary ? (
         <div>
           <div className="text-center flex justify-center">
             <button
-              className="mb-5 mx-2 mt-5 px-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 hover:bg-slate-500 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+              className="mb-5 mr-2 mt-5 px-10 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 hover:bg-slate-500 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
               onClick={openModal}
             >
               Read your Old Diary
             </button>
             <button
-              className="mb-5 mx-2 mt-5 px-10 text-white bg-sky-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 hover:bg-slate-500 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
+              className="mb-5 ml-2 mt-5 px-10 text-white bg-sky-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-red-300 hover:bg-slate-500 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
               onClick={() => navigate("/diary")}
             >
               Write today diary
@@ -99,6 +109,13 @@ export default function ReadDiaryById() {
             <div className="text-2xl">{useDiary.emotion}</div>
           </div>
           <div className="text-xl ">{useDiary.content}</div>
+          <button
+          className="p-2 bg-rose-500 rounded-md text-white mt-10 px-10 w-full sm:w-auto"
+          onClick={() => openEditModal()}
+        >
+          Edit
+        </button>
+        <ModalEditDiary isOpen={editModal} onRequestClose={closeEditModal} date={useDiary.date} title={useDiary.title} emotion={useDiary.emotion} content={useDiary.content} />
         </div>
       ) : (
         <div className="">
