@@ -110,7 +110,7 @@ export default function ReadDiaryById() {
           </div>
           <div className="text-xl ">{useDiary.content}</div>
           <button
-          className="p-2 bg-rose-500 rounded-md text-white mt-10 px-10 w-full sm:w-auto hover:bg-rose-800"
+          className="p-2 bg-lime-500 rounded-md text-white mt-10 px-10 w-full sm:w-auto hover:bg-lime-800"
           onClick={() => openEditModal()}
         >
           Edit

@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Modal from "react-modal";
 import { useDispatch } from "react-redux";
 import Select from "react-select";
-import Textarea from "../diary/TextArea";
+import TextArea from "../diary/TextArea";
 import { editDiary } from "../../libs/DiarySlice";
 
 const customStyles = {
@@ -84,9 +84,12 @@ export default function ModalEditDiary({
       >
         <form onSubmit={handleEdit}>
           <div className="p-4">
-            <div className="font-semibold text-2xl mb-3">Edit Diary {date}</div>
-            <div className="flex mb-5 justify-between">
-              <div className="sm:mr-2">
+            <div className="flex items-end max-sm:block mb-3">
+            <div className="font-semibold text-2xl max-sm:mb-2 md:mr-3">Edit Diary </div>
+            <div className="text-xl">{date}</div>
+            </div>
+            <div className="flex mb-5 justify-between items-center">
+              <div className="max-sm:mr-2">
                 <Select
                   value={options.find(
                     (option) => option.value === selectedEmotion
@@ -113,7 +116,7 @@ export default function ModalEditDiary({
               placeholder="Title: Ex. The brave of hero"
               className="block p-2.5 mb-4 w-full text-xl text-black bg-slate-100 rounded-lg border border-gray-300"
             />
-            <Textarea diaryMessage={editedDiary} />
+            <TextArea diaryMessage={editedDiary} />
           </div>
         </form>
       </Modal>
