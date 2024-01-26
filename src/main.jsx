@@ -12,6 +12,7 @@ import store from "./store.js";
 import { Provider } from "react-redux"; // Updated import
 import Addplanner from "./pages/Addplanner.jsx";
 import Modal from "react-modal";
+import SearchTodo from "./pages/SearchTodo.jsx";
 
 Modal.setAppElement("#root");
 
@@ -28,6 +29,10 @@ const routes = [
   {
     path: "/todolist",
     element: <Todolist />,
+  },
+  {
+    path: "/todoList/search",
+    element: <SearchTodo />,
   },
   {
     path: "/diary",
