@@ -34,7 +34,7 @@ export default function App() {
       setCardTheme("bg-slate-100")
     }
   }, [cardTheme, themeColor])
-
+  console.log(themeColor)
   return (
     <div className={`h-screen ${themeColor}`}>
       <Navbar />

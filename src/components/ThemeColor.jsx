@@ -7,7 +7,13 @@ function ThemeColor() {
   const [themeColor, setThemeColor] = useState(`bg-${nowTheme}-100`);
 
   useEffect(() => {
-    setThemeColor(`bg-${nowTheme}-100`);
+    if (nowTheme == "emerald") {
+      setThemeColor("bg-emerald-100");
+    } else if (nowTheme == "cyan") {
+      setThemeColor("bg-cyan-100");
+    } else {
+      setThemeColor("bg-white-100");
+    }
   }, [nowTheme, orderTheme]);
 
   return themeColor;
