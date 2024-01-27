@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Navbar from "../components/navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import TodoCard from "../components/todo/TodoCard";
@@ -29,7 +29,7 @@ export default function SearchTodo() {
   };
 
   return (
-    <div className={`h-screen ${themeColor}`}>
+    <div className={`min-h-screen ${themeColor}`}>
       <Navbar />
       <div className="max-w-screen-xl mx-auto p-4">
         <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
