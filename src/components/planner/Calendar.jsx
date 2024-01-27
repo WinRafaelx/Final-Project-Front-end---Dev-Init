@@ -31,16 +31,12 @@ const Calendar = () => {
   };
 
   const gotoAddEvent = () => { 
-    // dispatch(addEvent({
-    //   "year": thisYear,
-    //   "month": months[nowMonth - 1],
-    //   "date": 3,
-    //   "task": "test"
-    // }))
     navigate("/planner/addplanner");
   }
 
   return (
+    <div className="p-4 bg-white">
+
     <div className="container mx-auto">
       <div className="wrapper bg-white rounded shadow w-full">
         <div className="flex items-center justify-between p-4 border-b">
@@ -71,6 +67,7 @@ const Calendar = () => {
         </div>
         <MonthView month={nowMonth} year={thisYear} />
       </div>
+    </div>
     </div>
   );
 };

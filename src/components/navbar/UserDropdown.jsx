@@ -1,10 +1,16 @@
 import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import useClickOutside from "./useClickOutside";
+import { useSelector } from "react-redux";
+import { prevTheme, nextTheme } from "../../libs/ThemeSlice";
+import { useDispatch } from "react-redux";
 
 const UserDropdown = ({ onClose }) => {
   const [isOpen, setIsOpen] = useState(true);
   const dropdownRef = useRef(null);
+  const theme = useSelector((state) => state.theme.data);
+  const orderTheme = useSelector((state) => state.theme.now);
+  const dispatch = useDispatch();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -55,10 +61,31 @@ const UserDropdown = ({ onClose }) => {
         <li>
           <Link
             to="/diary"
-            className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover.bg-gray-600 dark:text-gray-200 dark:hover:text-white"
+            className="block px-4 py-2 text-sm text-gray-700 hover.bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white"
           >
             Diary
           </Link>
+        </li>
+        <li>
+          <div className="block  px-4 py-2 text-sm text-gray-700 dark:text-gray-200">
+            <div className="flex justify-between items-center">
+              <button
+                className="hover:bg-slate-300 rounded px-1"
+                onClick={() => dispatch(prevTheme())}
+              >
+                &lt;
+              </button>
+
+              <div className="font-semibold"> {theme[orderTheme]} </div>
+              <div
+                className="hover:bg-slate-300 rounded px-1"
+                onClick={() => dispatch(nextTheme())}
+              >
+                {" "}
+                &gt;{" "}
+              </div>
+            </div>
+          </div>
         </li>
       </ul>
     </div>

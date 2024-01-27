@@ -68,8 +68,8 @@ export default function FormDiary() {
   };
 
   return (
-    <>
-      <div className="text-center">
+    <div className="bg-white px-5 pb-10 rounded">
+      <div className="text-center ">
         <button
           className="mb-3 mt-5 px-10 text-white bg-blue-700 focus:ring-4 focus:outline-none focus:ring-red-300 hover:bg-slate-500 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
           onClick={openModal}
@@ -119,6 +119,6 @@ export default function FormDiary() {
           <TextAreaAutoSize diaryMessage={diaryMessage} />
         </form>
       )}
-    </>
+    </div>
   );
 }

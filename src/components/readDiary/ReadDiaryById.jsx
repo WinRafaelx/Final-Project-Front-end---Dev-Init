@@ -64,7 +64,7 @@ export default function ReadDiaryById() {
   }
 
   return (
-    <div>
+    <div className="bg-white px-5 pb-10 rounded">
       {useDiary ? (
         <div>
           <div className="text-center flex justify-center">

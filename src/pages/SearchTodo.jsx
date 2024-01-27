@@ -3,10 +3,12 @@ import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../components/navbar/Navbar";
 import { useNavigate } from "react-router-dom";
 import TodoCard from "../components/todo/TodoCard";
+import ThemeColor from "../components/ThemeColor";
 
 export default function SearchTodo() {
   const allData = useSelector((state) => state.todo.data);
   const navigate = useNavigate();
+  const themeColor = ThemeColor();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredData, setFilteredData] = useState([]);
@@ -27,7 +29,7 @@ export default function SearchTodo() {
   };
 
   return (
-    <>
+    <div className={`h-screen ${themeColor}`}>
       <Navbar />
       <div className="max-w-screen-xl mx-auto p-4">
         <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
@@ -100,6 +102,6 @@ export default function SearchTodo() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

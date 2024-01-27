@@ -4,12 +4,14 @@ import TodoCard from "../components/todo/TodoCard";
 import { useSelector, useDispatch } from "react-redux";
 import { addTodo } from "../libs/TodoSlice";
 import { useNavigate } from "react-router-dom";
+import ThemeColor from "../components/ThemeColor";
 
 export default function Todolist() {
   const inputRef = useRef(null);
   const data = useSelector((state) => state.todo.data);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const themeColor = ThemeColor();
 
   const handleAddTodo = (event) => {
     event.preventDefault(); // Prevents the page from refreshing
@@ -23,7 +25,7 @@ export default function Todolist() {
   };
 
   return (
-    <>
+    <div className={`min-h-screen ${themeColor}`}>
       <Navbar />
       <div className="max-w-screen-xl mx-auto p-4">
         <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
@@ -91,6 +93,6 @@ export default function Todolist() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

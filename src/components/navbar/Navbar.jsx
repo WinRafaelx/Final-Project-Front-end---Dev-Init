@@ -32,7 +32,7 @@ const Navbar = () => {
             className="h-8"
             alt="Flowbite Logo"
           /> */}
-           <img src='./public/polar-bear.png' alt="" className="h-10" />
+           <img src='/polar-bear.png' alt="" className="h-10" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             LifeLogHub
           </span>
