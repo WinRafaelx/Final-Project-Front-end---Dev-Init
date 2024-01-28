@@ -1,9 +1,14 @@
-# React + Vite
+# LifeLogHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Tools: React, Redux, TailwindCSS
 
-Currently, two official plugins are available:
+I created a website that consists of a planner, a to-do list, and diary pages and each page has a function to add, edit, and
+delete data. Then it will notify users on home page
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# Final-Project-Front-end---Dev-Init
+## Installation
+
+You can clone this site and then use below command to install package module
+
+```
+  npm install
+```
